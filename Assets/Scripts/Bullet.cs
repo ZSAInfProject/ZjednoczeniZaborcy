@@ -37,5 +37,9 @@ public class Bullet : MonoBehaviour {
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
+        else if (bulletTag == "PlayerBullet" && other.transform.tag == "Powerup"){
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
     }
 }

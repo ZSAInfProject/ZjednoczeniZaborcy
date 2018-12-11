@@ -39,6 +39,10 @@ public class Enemy : MonoBehaviour {
             transform.Translate(new Vector2(0, -1));
         }
 
+        if (transform.position.y == 0){
+            Destroy(gameObject);
+        }
+
         tempTime += Time.deltaTime;
         
         if(tempTime >= Timer){
