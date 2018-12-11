@@ -9,7 +9,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: Speed
-      value: 200
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe25ee3d29cd4074e8f5252bd2228eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 200
+  Speed: 1
 --- !u!212 &212649437455882394
 SpriteRenderer:
   m_ObjectHideFlags: 1

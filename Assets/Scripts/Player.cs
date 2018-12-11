@@ -24,8 +24,8 @@ public class Player : MonoBehaviour {
         float ClampedX = Mathf.Clamp(tf.position.x, (0 + tf.localScale.x / 2), MapWidth);
         tf.position = new Vector2(ClampedX, tf.position.y);
 
-        if ((Input.GetKeyDown(KeyCode.Return))) {//&& !(GameObject.FindGameObjectWithTag("PlayerBullet"))) {
-            Vector3 BulletPosition = transform.position + new Vector3(0, transform.localScale.y / 2, 0);
+        if ((Input.GetKeyDown(KeyCode.Return)) && !(GameObject.FindGameObjectWithTag("PlayerBullet"))) {
+            Vector3 BulletPosition = transform.position + new Vector3(0, transform.localScale.y, 0);
             GameObject PlayerBullet = Instantiate(Bullet, BulletPosition, Quaternion.identity);
             PlayerBullet.transform.parent = transform.parent;
             PlayerBullet.transform.tag = ("PlayerBullet");
