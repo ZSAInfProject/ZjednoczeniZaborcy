@@ -78,9 +78,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae8009a0f0e545419d54163a086332e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 8
-  Bullet: {fileID: 1528031956182762, guid: 437f78be897aabe4385c452fab8c27bf, type: 2}
-  Timer: 5
+  speed: 8
+  bullet: {fileID: 1528031956182762, guid: 437f78be897aabe4385c452fab8c27bf, type: 2}
+  timer: 2.5
 --- !u!212 &212483050838686296
 SpriteRenderer:
   m_ObjectHideFlags: 1

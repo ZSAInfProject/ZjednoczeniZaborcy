@@ -1,31 +1,31 @@
 ﻿using UnityEngine;
 
 public class Bullet : MonoBehaviour {
-    public float Speed = 2f;
-    private float MapHeight;
+    public float speed = 2f;
+    private float mapHeight;
     private string bulletTag;
     // Use this for initialization
     void Start() {
-        Transform BackgroundTransform = GameObject.FindGameObjectWithTag("Background").GetComponent<Transform>();
+        Transform backgroundTransform = GameObject.FindGameObjectWithTag("Background").GetComponent<Transform>();
         //Jest Half, bo punkt (0,0) jest na srodku ekranu (ale czy powinien byc?)
-        MapHeight = BackgroundTransform.localScale.y;
-        MapHeight -= transform.localScale.y / 2;
+        mapHeight = backgroundTransform.localScale.y;
+        mapHeight -= transform.localScale.y / 2;
         bulletTag = transform.tag;
 
         if (bulletTag == "PlayerBullet") {}
         else if(bulletTag == "EnemyBullet"){
-            Speed *= -1;
+            speed *= -1;
         }
     }
 
     void Update() {
-        if (Mathf.Abs(transform.position.y) >= MapHeight) {
+        if (Mathf.Abs(transform.position.y) >= mapHeight) {
             Destroy(gameObject);
         }
     }
 
     void FixedUpdate() {
-        transform.Translate(0, 0.1f * Speed, 0);
+        transform.Translate(0, 0.1f * speed, 0);
     }
 
     private void OnTriggerEnter2D (Collider2D other) {
@@ -37,7 +37,7 @@ public class Bullet : MonoBehaviour {
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
-        else if (bulletTag == "PlayerBullet" && other.transform.tag == "Powerup"){
+        else if (bulletTag == "PlayerBullet" && (other.transform.tag == "Powerup" || other.transform.tag == "Powerdown")){
             Destroy(other.gameObject);
             Destroy(gameObject);
         }

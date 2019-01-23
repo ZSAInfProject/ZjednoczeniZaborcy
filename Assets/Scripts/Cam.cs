@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Cam : MonoBehaviour {
 
-	public float Timer = 3f;
+	public float timer = 3f;
 	private float tempTime = 0f;
 	private bool doRotate = false;
 	// Use this for initialization
@@ -14,9 +14,16 @@ public class Cam : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		while (tempTime < Timer){
-			gameObject.transform.Rotate(0,0,1);
-			tempTime += Time.deltaTime;
+		if (doRotate){
+			if (tempTime < timer){
+				gameObject.transform.Rotate(0,0,1);
+				tempTime += Time.deltaTime;
+			}
+			else if (tempTime >= timer){
+				doRotate = false;
+				gameObject.transform.rotation = new Quaternion(0,0,0,0);
+				tempTime = 0;
+			}
 		}
 	}
 

@@ -9,33 +9,33 @@ public class Enemy : MonoBehaviour {
         Right = 1
     }
 
-    public float Speed = 8f;
-    private float MapWidth;
-    public GameObject Bullet;
-    private Direction Dir;
-    public float Timer = 2.5f;
+    public float speed = 8f;
+    private float mapWidth;
+    public GameObject bullet;
+    private Direction dir;
+    public float timer = 2.5f;
     private float tempTime;
     // Use this for initialization
     void Start() {
         Transform BackgroundTransform = GameObject.FindGameObjectWithTag("Background").GetComponent<Transform>();
-        MapWidth = BackgroundTransform.localScale.x;
-        MapWidth -= (transform.localScale.x / 2);
-        Dir = Direction.Right; 
+        mapWidth = BackgroundTransform.localScale.x;
+        mapWidth -= (transform.localScale.x / 2);
+        dir = Direction.Right; 
     }
 
     // Update is called once per frame
     void Update() {
-        Vector2 Move = new Vector2((int)Dir * Speed * Time.deltaTime, 0);
+        Vector2 Move = new Vector2((int)dir * speed * Time.deltaTime, 0);
         transform.Translate(Move);
-        float ClampedX = Mathf.Clamp(transform.position.x, (0 + transform.localScale.x / 2), MapWidth);
+        float ClampedX = Mathf.Clamp(transform.position.x, (0 + transform.localScale.x / 2), mapWidth);
         transform.position = new Vector2(ClampedX, transform.position.y);
 
-        if (transform.position.x == MapWidth){
-            Dir = Direction.Left;
+        if (transform.position.x == mapWidth){
+            dir = Direction.Left;
             transform.Translate(new Vector2(0, -1));
         }
         else if (transform.position.x == 0.5f){
-            Dir = Direction.Right;
+            dir = Direction.Right;
             transform.Translate(new Vector2(0, -1));
         }
 
@@ -45,16 +45,16 @@ public class Enemy : MonoBehaviour {
 
         tempTime += Time.deltaTime;
         
-        if(tempTime >= Timer){
+        if(tempTime >= timer){
             SpawnBullet();
             tempTime = 0f;
         }
     }
 
     private void SpawnBullet() {
-        Vector3 BulletPosition = transform.position - new Vector3(0, transform.localScale.y, 0);
-        GameObject EnemyBullet = Instantiate(Bullet, BulletPosition, Quaternion.identity);
-        EnemyBullet.transform.parent = transform.parent;
-        EnemyBullet.transform.tag = ("EnemyBullet");
+        Vector3 bulletPosition = transform.position - new Vector3(0, transform.localScale.y, 0);
+        GameObject enemyBullet = Instantiate(bullet, bulletPosition, Quaternion.identity);
+        enemyBullet.transform.parent = transform.parent;
+        enemyBullet.transform.tag = ("EnemyBullet");
     }
 }

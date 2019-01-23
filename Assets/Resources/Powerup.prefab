@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4191884667552998}
   - component: {fileID: 212505046273263616}
-  - component: {fileID: 114219069299446576}
   - component: {fileID: 61098315795405080}
   m_Layer: 0
   m_Name: Powerup
@@ -67,20 +66,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114219069299446576
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1953129962380330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a3be3a3c4fcf2945a5773dd0fa5e1c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 8
-  cam: {fileID: 0}
-  camScript: {fileID: 0}
 --- !u!212 &212505046273263616
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -117,7 +102,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 23d8b7acd6710fd47b3efb5f368330b9, type: 3}
-  m_Color: {r: 0.10453009, g: 0.29083642, b: 0.8207547, a: 1}
+  m_Color: {r: 0.13333333, g: 0.29271233, b: 0.8666667, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
